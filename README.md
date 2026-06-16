@@ -104,7 +104,3 @@ carrossel, slide, peça que o sistema gera respeita isso.
 versiona no GitHub, fica tudo seu.
 
 ---
-
-## Quando precisar
-
-[mazzeoia.com.br](https://mazzeoia.com.br)
