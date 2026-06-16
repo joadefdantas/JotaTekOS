@@ -20,7 +20,7 @@ Dois caminhos. Escolhe o que combina contigo.
 Abre o Claude Code em qualquer pasta e cola:
 
 ```
-Clona o https://github.com/joade/JotaTekOS.git na pasta atual,
+Clona o https://github.com/joadefdantas/JotaTekOS.git na pasta atual,
 entra nela e roda o /instalar.
 ```
 
@@ -30,7 +30,7 @@ só responde.
 ### Pelo terminal (mais previsível)
 
 ```
-git clone https://github.com/joade/JotaTekOS.git
+git clone https://github.com/joadefdantas/JotaTekOS.git
 cd JotaTekOS
 code .
 ```
