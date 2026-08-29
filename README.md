@@ -4,8 +4,8 @@
 
 Você acaba de instalar o JotaTekOS. Em alguns minutos, sua empresa vai
 ter uma memória própria, uma identidade visual aplicada em tudo que
-o sistema gerar, e 15 skills prontas pra fazer marketing, SEO, ads
-e operação rodarem com você dirigindo.
+o sistema gerar, e 22 skills prontas pra fazer marketing, SEO, ads,
+UI/UX design e operação rodarem com você dirigindo.
 
 Bora voar.
 
@@ -69,6 +69,9 @@ Google · `/aprovar-post` publica blog + Instagram + Facebook num comando.
 `/anuncio-google` monta a campanha inteira em CSV pronto pra importar
 no Google Ads Editor · `/relatorio-ads` lê os exports de Google + Meta
 e devolve relatório semanal com alertas e recomendações.
+
+**Design & UI/UX Intelligence** — interfaces e experiências com padrão mundial
+`/ui-ux-pro-max` pesquisa bancos de dados locais (79 estilos visuais, 192 paletas por nicho, 74 combinações de fontes, 119 regras UX, 105 ícones, 22 stacks) · `/design-system` gera arquitetura de tokens (primitivos, semânticos, componentes) e design systems completos · `/design` guia a criação e refatoração de interfaces · `/ui-styling` estiliza com precisão em Tailwind/CSS · `/brand` estrutura diretrizes visuais e de marca · `/banner-design` projeta banners e criativos gráficos · `/slides` gera apresentações e decks estratégicos.
 
 **Produção** — ferramentas do dia a dia
 `/analisar-dados` lê CSV/XLSX/PDF e gera resumo executivo ·

@@ -22,11 +22,9 @@ Usar essas informações como base pra qualquer resposta ou decisão. Ao
 sugerir prioridades, formatos ou abordagens, considerar o foco atual
 descrito em `estrategia.md`.
 
-Pra qualquer tarefa visual (carrossel, post, landing page), consultar
-`identidade/design-guide.md` como referência de estilo.
+Pra qualquer tarefa visual (carrossel, post, landing page, interface de app, dashboard ou design system), consultar `identidade/design-guide.md` como referência de estilo do negócio e utilizar o motor nativo `ui-ux-pro-max` (`.claude/skills/ui-ux-pro-max/`) para inteligência de design, diretrizes de UX, paletas de cores, pareamentos tipográficos e geração de design systems.
 
-Não é necessário listar o que foi lido nem confirmar a leitura. Apenas
-usar o contexto naturalmente.
+Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o contexto naturalmente.
 
 ---
 

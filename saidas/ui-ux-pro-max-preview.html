@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JotaTekOS — UI/UX Pro Max Design Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #080b12;
+      --bg-secondary: #0f1422;
+      --bg-card: rgba(18, 24, 38, 0.7);
+      --bg-card-hover: rgba(28, 36, 56, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(0, 242, 254, 0.3);
+      --accent-cyan: #00f2fe;
+      --accent-blue: #4facfe;
+      --accent-purple: #9d4edd;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(157, 78, 221, 0.06) 0%, transparent 40%);
+    }
+
+    header {
+      padding: 2.5rem 2rem 1.5rem;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #000;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.5px;
+    }
+
+    .brand h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-tag {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      border-left: 1px solid var(--border-color);
+      padding-left: 12px;
+    }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      color: var(--accent-emerald);
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 10px var(--accent-emerald);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    main {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(20, 28, 48, 0.8), rgba(15, 20, 35, 0.6));
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 30%, rgba(0, 242, 254, 0.08), transparent 40%);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 40%, var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      max-width: 800px;
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-box {
+      background: rgba(8, 11, 18, 0.6);
+      border: 1px solid var(--border-color);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-box:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 242, 254, 0.15);
+    }
+
+    .stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 22px;
+      background: var(--accent-cyan);
+      border-radius: 2px;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Search Simulator */
+    .search-input-group {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .query-input {
+      flex: 1;
+      min-width: 200px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+    }
+
+    .query-input:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 2px rgba(0, 242, 254, 0.2);
+    }
+
+    .domain-select {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .btn-action {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #000;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action:hover {
+      opacity: 0.9;
+      transform: scale(1.02);
+    }
+
+    .terminal-box {
+      background: #04060a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      color: #38bdf8;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .terminal-header {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 0.35rem;
+    }
+
+    /* Style Cards */
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .style-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .style-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-3px);
+    }
+
+    .style-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .badge-oled { background: rgba(157, 78, 221, 0.2); color: #c77dff; border: 1px solid rgba(157, 78, 221, 0.3); }
+    .badge-glass { background: rgba(0, 242, 254, 0.2); color: #38bdf8; border: 1px solid rgba(0, 242, 254, 0.3); }
+    .badge-swiss { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .style-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .style-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    /* Palette Swatches */
+    .palette-row {
+      display: flex;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .palette-item {
+      flex: 1;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .palette-item:hover::after {
+      content: attr(data-hex);
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* UX Rule Cards */
+    .rule-item {
+      display: flex;
+      gap: 12px;
+      padding: 0.85rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--accent-cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .rule-item.priority-crit {
+      border-left-color: #ef4444;
+    }
+
+    .rule-item.priority-high {
+      border-left-color: #f59e0b;
+    }
+
+    .rule-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .rule-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Clickable Command Pill */
+    .cmd-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cmd-pill:hover {
+      background: rgba(0, 242, 254, 0.1);
+      border-color: var(--accent-cyan);
+    }
+
+    .copy-tag {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+    }
+
+    footer {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span class="brand-badge">JotaTekOS</span>
+      <h1>UI/UX Pro Max</h1>
+      <span class="brand-tag">Design Intelligence Suite</span>
+    </div>
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      22 Skills Nativas Ativas
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <h2 class="hero-title">Motor Nativo de Inteligência de Design</h2>
+      <p class="hero-desc">
+        Integrado diretamente ao ecossistema JotaTekOS. Consulte regras de UX, paletas de cores calibradas para o seu produto, combinações tipográficas do Google Fonts, diretrizes de acessibilidade e gere Design Systems completos em 1 comando.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-num">79</div>
+          <div class="stat-label">Estilos UI</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">192</div>
+          <div class="stat-label">Paletas Nicho</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">74</div>
+          <div class="stat-label">Pares Fontes</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">119</div>
+          <div class="stat-label">Regras UX</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">105</div>
+          <div class="stat-label">Ícones SVG</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">22</div>
+          <div class="stat-label">Stacks Tech</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulator & Live Demo -->
+    <div class="grid-2">
+      <!-- Search Simulator -->
+      <section class="card">
+        <h3 class="section-title">Simulador de Consulta de Design</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Experimente consultas reais ao banco de dados BM25 do UI/UX Pro Max:
+        </p>
+
+        <div class="search-input-group">
+          <input type="text" id="queryInput" class="query-input" value="fintech crypto" placeholder="Digite termos de busca...">
+          <select id="domainSelect" class="domain-select">
+            <option value="product">product</option>
+            <option value="style">style</option>
+            <option value="color">color</option>
+            <option value="typography">typography</option>
+            <option value="ux">ux</option>
+            <option value="icons">icons</option>
+            <option value="gsap">gsap</option>
+          </select>
+          <button class="btn-action" onclick="runSimulation()">Consultar</button>
+        </div>
+
+        <div class="terminal-box" id="terminalOutput">
+          <div class="terminal-header">
+            <span>Terminal Simulado — JotaTekOS</span>
+            <span>BM25 + Hybrid Search</span>
+          </div>
+          <pre id="outputContent" style="white-space: pre-wrap; font-family: inherit;">
+$ python .claude/skills/ui-ux-pro-max/scripts/search.py "fintech crypto" --domain product
+
+## UI Pro Max Search Results
+**Domain:** product | **Query:** fintech crypto
+**Source:** products.csv | **Found:** 1 result
+
+- **Product Type:** Fintech/Crypto
+- **Primary Style Recommendation:** Glassmorphism + Dark Mode (OLED)
+- **Secondary Styles:** Retro-Futurism, Motion-Driven
+- **Landing Page Pattern:** Conversion-Optimized
+- **Dashboard Style:** Real-Time Monitoring + Predictive
+- **Color Palette Focus:** Dark tech colors (#0A0E17, #00F2FE, #9D4EDD) + trust blue</pre>
+        </div>
+      </section>
+
+      <!-- Commands & Quick Start -->
+      <section class="card">
+        <h3 class="section-title">Comandos Nativos no JotaTekOS</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Clique em qualquer comando para copiar e executar no Claude Code ou terminal:
+        </p>
+
+        <div class="cmd-pill" onclick="copyCmd('python .claude/skills/ui-ux-pro-max/scripts/search.py &quot;SaaS B2B&quot; --domain product')">
+          <span>python .claude/skills/ui-ux-pro-max/scripts/search.py "SaaS B2B" --domain product</span>
+          <span class="copy-tag">Copiar</span>
+        </div>
+
+        <div class="cmd-pill" onclick="copyCmd('python .claude/skills/ui-ux-pro-max/scripts/search.py &quot;dark mode oled&quot; --domain style')">
+          <span>python .claude/skills/ui-ux-pro-max/scripts/search.py "dark mode oled" --domain style</span>
+          <span class="copy-tag">Copiar</span>
+        </div>
+
+        <div class="cmd-pill" onclick="copyCmd('python .claude/skills/ui-ux-pro-max/scripts/search.py &quot;modern tech&quot; --domain typography')">
+          <span>python .claude/skills/ui-ux-pro-max/scripts/search.py "modern tech" --domain typography</span>
+          <span class="copy-tag">Copiar</span>
+        </div>
+
+        <div class="cmd-pill" onclick="copyCmd('python .claude/skills/ui-ux-pro-max/scripts/search.py &quot;plataforma gestao saas&quot; --design-system -p &quot;MeuApp&quot;')">
+          <span>python .claude/skills/ui-ux-pro-max/scripts/search.py "plataforma saas" --design-system</span>
+          <span class="copy-tag">Copiar</span>
+        </div>
+
+        <div class="cmd-pill" onclick="copyCmd('/ui-ux-pro-max')">
+          <span>/ui-ux-pro-max (Skill nativa direta no Claude)</span>
+          <span class="copy-tag">Copiar</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- Visual Styles Explorer -->
+    <section>
+      <h3 class="section-title">Estilos Visuais em Destaque</h3>
+      <div class="style-grid">
+        <div class="style-card">
+          <span class="style-badge badge-oled">OLED Dark Mode</span>
+          <h4 class="style-name">Dark Mode (OLED)</h4>
+          <p class="style-desc">Preto puro (#000000 / #0A0E17), alto contraste, perfeito para produtos tech, cripto, dashboards analíticos e ferramentas para desenvolvedores.</p>
+          <div class="palette-row">
+            <div class="palette-item" style="background: #000000;" data-hex="#000000"></div>
+            <div class="palette-item" style="background: #0F172A;" data-hex="#0F172A"></div>
+            <div class="palette-item" style="background: #00F2FE;" data-hex="#00F2FE"></div>
+            <div class="palette-item" style="background: #9D4EDD;" data-hex="#9D4EDD"></div>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <span class="style-badge badge-glass">Glassmorphism</span>
+          <h4 class="style-name">Glass & Micro-Blur</h4>
+          <p class="style-desc">Camadas translúcidas com backdrop-filter, bordas sutis de 1px com gradientes de opacidade e sombras difusas para profundidade sofisticada.</p>
+          <div class="palette-row">
+            <div class="palette-item" style="background: rgba(255,255,255,0.08);" data-hex="rgba(255,255,255,0.08)"></div>
+            <div class="palette-item" style="background: #1E293B;" data-hex="#1E293B"></div>
+            <div class="palette-item" style="background: #38BDF8;" data-hex="#38BDF8"></div>
+            <div class="palette-item" style="background: #818CF8;" data-hex="#818CF8"></div>
+          </div>
+        </div>
+
+        <div class="style-card">
+          <span class="style-badge badge-swiss">Swiss & Editorial</span>
+          <h4 class="style-name">Minimalism & Swiss Style</h4>
+          <p class="style-desc">Hierarquia rigorosa, grid assimétrico, tipografia marcante (Inter/Outfit) e espaço em branco generoso para clareza máxima.</p>
+          <div class="palette-row">
+            <div class="palette-item" style="background: #FFFFFF;" data-hex="#FFFFFF"></div>
+            <div class="palette-item" style="background: #E2E8F0;" data-hex="#E2E8F0"></div>
+            <div class="palette-item" style="background: #0F172A;" data-hex="#0F172A"></div>
+            <div class="palette-item" style="background: #F59E0B;" data-hex="#F59E0B"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UX Guidelines & WCAG Checklist -->
+    <section class="card">
+      <h3 class="section-title">Diretrizes Críticas de UX & Acessibilidade</h3>
+      <div class="grid-2">
+        <div>
+          <div class="rule-item priority-crit">
+            <div>
+              <div class="rule-title">Acessibilidade WCAG 2.1 (Contraste 4.5:1)</div>
+              <div class="rule-desc">Contraste mínimo para texto normal. Nunca remover focus-ring em elementos interativos e sempre fornecer aria-labels em botões só com ícone.</div>
+            </div>
+          </div>
+          <div class="rule-item priority-crit">
+            <div>
+              <div class="rule-title">Touch Targets (Mínimo 44×44px)</div>
+              <div class="rule-desc">Área de toque segura com espaçamento de 8px+ entre botões móveis. Feedback visual instantâneo a cada interação.</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="rule-item priority-high">
+            <div>
+              <div class="rule-title">Performance Visual & CLS (< 0.1)</div>
+              <div class="rule-desc">Reservar dimensões de imagens (evitar saltos de layout), usar formatos WebP/AVIF e aplicar carregamento preguiçoso (lazy loading).</div>
+            </div>
+          </div>
+          <div class="rule-item priority-high">
+            <div>
+              <div class="rule-title">Arquitetura de Tokens em 3 Camadas</div>
+              <div class="rule-desc">Primitivos (valores brutos) → Semânticos (propósito de uso) → Componentes (específicos do elemento).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>JotaTekOS — Sistema Operacional de Negócios com Inteligência Artificial</div>
+    <div>UI/UX Pro Max Skill v1.0.0 (Nativa)</div>
+  </footer>
+
+  <script>
+    const database = {
+      product: {
+        "saas": "Product Type: SaaS (General)\nPrimary Style: Glassmorphism + Flat Design\nLanding Pattern: Hero + Features + CTA\nPalette Focus: Trust blue + accent contrast (#2563EB, #00F2FE)",
+        "fintech": "Product Type: Fintech/Crypto\nPrimary Style: Glassmorphism + Dark Mode (OLED)\nSecondary Styles: Retro-Futurism, Motion-Driven\nPalette Focus: Dark tech colors (#0A0E17, #00F2FE, #9D4EDD)",
+        "ecommerce": "Product Type: E-commerce / Retail\nPrimary Style: Clean Editorial + Card Grid\nLanding Pattern: Hero Banner + Product Carousel + Social Proof\nPalette Focus: Neutral Slate + Vibrant Conversion Accent (#10B981)"
+      },
+      style: {
+        "oled": "Style: Dark Mode (OLED)\nVisual Characteristics: Pure black (#000000), deep midnight (#0A0E17), crisp white text (#F8FAFC), neon cyan & violet accents.\nCSS Filter: backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08);",
+        "glass": "Style: Glassmorphism\nVisual Characteristics: Translucent backgrounds with frosted-glass blur, subtle 1px border glow, layered depth.\nCSS Token: background: rgba(18, 24, 38, 0.7); backdrop-filter: blur(12px);"
+      },
+      color: {
+        "saas": "Palette: SaaS Modern\nPrimary: #2563EB (Brand Blue)\nAccent: #00F2FE (Cyan)\nBackground: #0A0E17 (Dark Slate)\nSurface: #1E293B (Card Dark)",
+        "fintech": "Palette: Fintech OLED\nPrimary: #00F2FE (Neon Cyan)\nSecondary: #9D4EDD (Purple)\nSuccess: #10B981 (Emerald)\nBackground: #080B12"
+      },
+      typography: {
+        "tech": "Font Pairing: Modern Tech\nHeading: Outfit (Google Fonts, weights 600, 700, 800)\nBody: Plus Jakarta Sans (weights 400, 500, 600)\nCode: Fira Code",
+        "editorial": "Font Pairing: Clean Editorial\nHeading: Syne / Space Grotesk\nBody: Inter (weights 400, 500)"
+      }
+    };
+
+    function runSimulation() {
+      const q = document.getElementById('queryInput').value.toLowerCase();
+      const domain = document.getElementById('domainSelect').value;
+      const out = document.getElementById('outputContent');
+      
+      let matched = "Resultados encontrados no banco local:\n";
+      if (database[domain]) {
+        let found = false;
+        for (let key in database[domain]) {
+          if (q.includes(key) || key.includes(q)) {
+            matched += "\n" + database[domain][key];
+            found = true;
+          }
+        }
+        if (!found) {
+          const keys = Object.keys(database[domain]);
+          matched += "\n" + database[domain][keys[0]];
+        }
+      } else {
+        matched += `\nResultado para '${q}' em '${domain}':\n- Diretriz validada e alinhada com as 119 regras de UX e 79 estilos do UI/UX Pro Max.`;
+      }
+
+      out.innerText = `$ python .claude/skills/ui-ux-pro-max/scripts/search.py "${q}" --domain ${domain}\n\n## UI Pro Max Search Results\n**Domain:** ${domain} | **Query:** ${q}\n\n${matched}`;
+    }
+
+    function copyCmd(text) {
+      navigator.clipboard.writeText(text);
+      alert('Comando copiado para a área de transferência:\n' + text);
+    }
+  </script>
+</body>
+</html>

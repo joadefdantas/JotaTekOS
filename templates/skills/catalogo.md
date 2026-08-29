@@ -23,7 +23,38 @@ Skills externas prontas pra instalar. Use como referencia ao criar skills novas 
 
 ---
 
-## Criar interfaces e paginas web
+## Criar interfaces e inteligência de design
+
+### UI/UX Pro Max (Design Intelligence)
+**O que faz:** Motor completo de inteligência visual e UX com busca local em 79 estilos, 192 paletas de cores, 74 combinações de fontes, 119 diretrizes de UX, 105 ícones, 17 presets GSAP e 22 stacks tecnológicas. Gera design systems completos para novas páginas ou produtos.
+**Bom pra:** Projetar interfaces do zero, escolher paletas e tipografias assertivas, revisar acessibilidade (WCAG), criar design systems persistidos (`design-system/<slug>/MASTER.md`) e animar componentes com GSAP.
+**Como usar:** Nativo no JotaTekOS em `.claude/skills/ui-ux-pro-max/`. Chamar com `/ui-ux-pro-max` ou rodar:
+`python .claude/skills/ui-ux-pro-max/scripts/search.py "<termo>" --domain <product|style|typography|color|landing|chart|ux|icons|gsap>` ou com `--design-system`.
+**Fonte:** Skill nativa integrada ao pacote do JotaTekOS
+
+### Design System
+**O que faz:** Arquitetura de tokens em 3 camadas (primitivos → semânticos → componentes), especificação de componentes, variáveis CSS/Tailwind e padronização visual completa.
+**Bom pra:** Criar sistemas de design escaláveis, exportar tokens CSS e padronizar componentes de UI.
+**Como usar:** Nativo no JotaTekOS. Chamar com `/design-system`.
+**Fonte:** Skill nativa integrada ao pacote do JotaTekOS
+
+### UI Styling
+**O que faz:** Aplicação de estilos modernos, micro-interações, layout responsivo e classes Tailwind/CSS avançadas com foco em estética premium.
+**Bom pra:** Refatorar estilos, implementar temas escuros (OLED), glassmorphism e micro-animações.
+**Como usar:** Nativo no JotaTekOS. Chamar com `/ui-styling`.
+**Fonte:** Skill nativa integrada ao pacote do JotaTekOS
+
+### Brand (Identidade de Marca)
+**O que faz:** Estrutura tom visual, diretrizes de marca, aplicação de logotipos e paletas conceituais.
+**Bom pra:** Alinhar páginas e interfaces ao posicionamento e à identidade de marca.
+**Como usar:** Nativo no JotaTekOS. Chamar com `/brand`.
+**Fonte:** Skill nativa integrada ao pacote do JotaTekOS
+
+### Banner Design & Slides
+**O que faz:** Estrutura e projeta criativos visuais para banners promocionais (`/banner-design`) e decks/apresentações estratégicas de alta conversão (`/slides`).
+**Bom pra:** Criativos de tráfego pago, apresentações comerciais, pitch decks e materiais institucionais.
+**Como usar:** Nativo no JotaTekOS. Chamar com `/banner-design` ou `/slides`.
+**Fonte:** Skills nativas integradas ao pacote do JotaTekOS
 
 ### Frontend Design
 **O que faz:** Cria interfaces web completas com design de alta qualidade. Gera codigo HTML/CSS/React pronto pra usar, com visual profissional que foge da estetica generica de IA.
